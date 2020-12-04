@@ -1,0 +1,17 @@
+# Visual Studio generated files
+.vs/
+obj/
+*.csproj
+*.sln
+
+# Unity generated files and folders
+Builds/
+Library/
+Logs/
+Temp/
+packages-lock.json
+
+# Ignore meta files
+*.meta
+# But not source files with postfix
+!*.*.meta
