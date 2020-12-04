@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class PlayerStatsManager : MonoBehaviour
@@ -29,7 +30,17 @@ public class PlayerStatsManager : MonoBehaviour
 	private void Awake()
 	{
 		Instance = this;
+
 		UpdateUI();
+		StartCoroutine(PresentPMLoop());
+	}
+
+	private IEnumerator PresentPMLoop()
+	{
+		while (true) {
+			yield return new WaitForSeconds(1f);
+			PresentsTotal += PresentsPM;
+		}
 	}
 
 	private void UpdateUI()
