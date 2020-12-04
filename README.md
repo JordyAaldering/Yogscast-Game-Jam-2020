@@ -1,5 +1,5 @@
 # Yogscast Game Jam 2020
-Theme: '...'
+Theme: 'Surprise'
 
 # Built With
 * [Unity](https://unity.com/)
