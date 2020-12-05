@@ -107,12 +107,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buyCost: 5
-  upgradeCostIncrease: 5
   initialEfficiency: 1
+  upgradeCostIncrease: 5
   upgradeEfficiencyIncrease: 1
   tableName: Construction Table
-  description: Make your own toys
-  cost: 0
-  efficiency: 0
-  bought: 0
+  description: Make your own presents
+  upgradeInfo: Make your own presents
   clickCooldown: 0.01

@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float sensitivity;
+    [SerializeField] private float interactRange;
 
     private Table hoverObject;
     private bool hasHover;
@@ -14,7 +15,6 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
-
         upgradePanel = FindObjectOfType<UpgradePanel>();
         upgradePanel.gameObject.SetActive(false);
 
@@ -62,12 +62,13 @@ public class PlayerController : MonoBehaviour
     private void GetHoverObject()
 	{
         Transform cam = Camera.main.transform;
-        if (Physics.Raycast(cam.position, cam.forward, out var hit, 10f)) {
+        if (Physics.Raycast(cam.position, cam.forward, out var hit, interactRange)) {
             hasHover = hit.collider.TryGetComponent(out hoverObject);
-            upgradePanel.gameObject.SetActive(hasHover);
-            if (hasHover) {
-                upgradePanel.SetInfo(hoverObject);
-			}
+        }
+
+        upgradePanel.gameObject.SetActive(hasHover);
+        if (hasHover) {
+            upgradePanel.SetInfo(hoverObject);
         }
     }
 }

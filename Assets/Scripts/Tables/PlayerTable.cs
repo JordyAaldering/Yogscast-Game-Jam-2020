@@ -7,7 +7,7 @@ public class PlayerTable : Table
 
 	private void Awake()
 	{
-		Cost = buyCost;
+		Cost = upgradeCostIncrease;
 		Efficiency = initialEfficiency;
 		IsBought = true;
 	}

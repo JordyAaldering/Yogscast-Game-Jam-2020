@@ -19,7 +19,7 @@ public class PlayerStatsManager : MonoBehaviour
 	}
 
 	private int _presentsPM = 0;
-	public int PresentsPM {
+	public int Efficiency {
 		get => _presentsPM;
 		set {
 			_presentsPM = value;
@@ -39,13 +39,13 @@ public class PlayerStatsManager : MonoBehaviour
 	{
 		while (true) {
 			yield return new WaitForSeconds(1f);
-			PresentsTotal += PresentsPM;
+			PresentsTotal += Efficiency;
 		}
 	}
 
 	private void UpdateUI()
 	{
 		presentsTotalText.text = $"Presents: {PresentsTotal}";
-		presentsPMText.text = $"Efficiency: {PresentsPM}";
+		presentsPMText.text = $"Efficiency: {Efficiency}";
 	}
 }

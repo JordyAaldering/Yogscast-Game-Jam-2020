@@ -10,11 +10,16 @@ public class UpgradePanel : MonoBehaviour
 
     public void SetInfo(Table table)
 	{
-        buyText.text = (table.IsBought ? "Upgrade " : "Buy ") + table.tableName;
-        costText.text = $"Cost: {table.Cost}";
-        efficiencyText.text = table.IsBought
-            ? $"Efficiency: {table.Efficiency}"
-            : $"New Efficiency: {table.Efficiency + table.upgradeEfficiencyIncrease}";
-        descriptionText.text = table.description;
+        if (!table.IsBought) {
+            buyText.text = $"Buy {table.tableName}";
+            costText.text = $"Cost: {table.Cost} Presents";
+            efficiencyText.text = $"Efficiency: {table.Efficiency}";
+            descriptionText.text = table.description;
+        } else {
+            buyText.text = $"Upgrade {table.tableName}";
+            costText.text = $"Cost: {table.Cost} Presents";
+            efficiencyText.text = $"New Efficiency: {table.Efficiency + table.upgradeEfficiencyIncrease}";
+            descriptionText.text = table.upgradeInfo;
+        }
     }
 }
