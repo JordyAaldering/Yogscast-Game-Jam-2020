@@ -106,5 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515bdf20561b66949b36d9fb14891211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  efficiency: 1
-  cooldown: 1
+  buyCost: 0
+  upgradeCostIncrease: 5
+  upgradeEfficiencyIncrease: 1
+  initialEfficiency: 1

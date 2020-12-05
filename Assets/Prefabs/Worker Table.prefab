@@ -157,8 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6ca7fabb845724eb7a13244e1e4fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
-  efficiency: 5
+  buyCost: 5
+  upgradeCostIncrease: 5
+  upgradeEfficiencyIncrease: 1
+  initialEfficiency: 1
   enabledOnBuy: {fileID: 4143294315586822985}
 --- !u!1001 &3311682488961266281
 PrefabInstance:
