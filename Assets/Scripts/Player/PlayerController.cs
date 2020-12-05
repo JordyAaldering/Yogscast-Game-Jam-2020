@@ -3,6 +3,7 @@
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float sprintSpeed;
     [SerializeField] private float sensitivity;
     [SerializeField] private float interactRange;
 
@@ -46,8 +47,9 @@ public class PlayerController : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
         Vector3 moveDir = horizontal * right + vertical * forward;
+        moveDir *= Input.GetButton("Fire3") ? sprintSpeed : speed;
 
-        characterController.Move(speed * Time.deltaTime * moveDir);
+        characterController.Move(moveDir * Time.deltaTime);
     }
 
     private void RotateCamera()

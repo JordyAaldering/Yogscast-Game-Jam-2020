@@ -397,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  sprintSpeed: 9
   sensitivity: 2
   interactRange: 5
 --- !u!1 &171230570
@@ -427,7 +428,7 @@ RectTransform:
   m_GameObject: {fileID: 171230570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 1480304381}
   - {fileID: 1067243871}
@@ -948,7 +949,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Elf Workers: 99/99'
+  m_text: 'Progress 1: 99/99
+
+    Progress 2: 99/99
+
+    Progress 3: 99/99'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e0ab5ccdcc48d0245862abafb0541b02, type: 2}
   m_sharedMaterial: {fileID: 1836761096098602, guid: e0ab5ccdcc48d0245862abafb0541b02,
@@ -1251,7 +1256,7 @@ PrefabInstance:
     - target: {fileID: 4073061580591444114, guid: ee4da923c4006c84fa8f95afe20d3ccd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 4073061580591444114, guid: ee4da923c4006c84fa8f95afe20d3ccd,
         type: 3}
@@ -3013,7 +3018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 435620, guid: a683bfbbfaf93ca46beefd0d0ca19b1f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.58
+      value: -17.47
       objectReference: {fileID: 0}
     - target: {fileID: 435620, guid: a683bfbbfaf93ca46beefd0d0ca19b1f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3046,6 +3051,22 @@ PrefabInstance:
     - target: {fileID: 435620, guid: a683bfbbfaf93ca46beefd0d0ca19b1f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19886828, guid: a683bfbbfaf93ca46beefd0d0ca19b1f, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19886828, guid: a683bfbbfaf93ca46beefd0d0ca19b1f, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19886828, guid: a683bfbbfaf93ca46beefd0d0ca19b1f, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19886828, guid: a683bfbbfaf93ca46beefd0d0ca19b1f, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a683bfbbfaf93ca46beefd0d0ca19b1f, type: 3}
@@ -3214,7 +3235,7 @@ RectTransform:
   m_GameObject: {fileID: 1807954085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 2122503803}
   - {fileID: 1099055613}
@@ -3328,7 +3349,7 @@ PrefabInstance:
     - target: {fileID: 4073061580591444114, guid: ee4da923c4006c84fa8f95afe20d3ccd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 4073061580591444114, guid: ee4da923c4006c84fa8f95afe20d3ccd,
         type: 3}
@@ -3403,7 +3424,7 @@ PrefabInstance:
     - target: {fileID: 4073061580591444114, guid: ee4da923c4006c84fa8f95afe20d3ccd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 4073061580591444114, guid: ee4da923c4006c84fa8f95afe20d3ccd,
         type: 3}
@@ -3486,7 +3507,7 @@ RectTransform:
   m_GameObject: {fileID: 1977547579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 360105763}
   m_Father: {fileID: 1381104239}
@@ -3495,7 +3516,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3, y: -3}
-  m_SizeDelta: {x: 180, y: 50}
+  m_SizeDelta: {x: 180, y: 63}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1977547581
 MonoBehaviour:
@@ -3776,7 +3797,7 @@ PrefabInstance:
     - target: {fileID: 4073061580591444114, guid: ee4da923c4006c84fa8f95afe20d3ccd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 4073061580591444114, guid: ee4da923c4006c84fa8f95afe20d3ccd,
         type: 3}
