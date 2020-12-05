@@ -14,7 +14,7 @@
 	{
 		if (PlayerStatsManager.Instance.PresentsTotal >= Cost) {
 			PlayerStatsManager.Instance.PresentsTotal -= Cost;
-			transform.parent.gameObject.SetActive(false);
+			gameObject.SetActive(false);
 		}
 	}
 }
