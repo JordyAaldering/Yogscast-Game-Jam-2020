@@ -19,7 +19,7 @@ public class ProgressPanel : MonoBehaviour
 	private void PopulateProgress()
 	{
 		progress = new Dictionary<string, Tuple<int, int>>();
-		foreach (Table t in FindObjectsOfType<Table>()) {
+		foreach (Generator t in FindObjectsOfType<Generator>()) {
 			if (progress.TryGetValue(t.tableName, out var val)) {
 				progress[t.tableName] = new Tuple<int, int>(
 					val.Item1 + (t.IsBought ? 1 : 0), val.Item2 + 1);

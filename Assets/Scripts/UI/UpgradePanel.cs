@@ -8,7 +8,7 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI efficiencyText;
     [SerializeField] private TextMeshProUGUI descriptionText;
 
-    public void SetInfo(Table table)
+    public void SetInfo(Generator table)
 	{
         if (!table.IsBought) {
             buyText.text = $"Buy {table.tableName}";

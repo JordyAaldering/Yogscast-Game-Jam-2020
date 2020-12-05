@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float sensitivity;
     [SerializeField] private float interactRange;
 
-    private Table hoverObject;
+    private Generator hoverObject;
     private bool hasHover;
 
     private CharacterController characterController;
