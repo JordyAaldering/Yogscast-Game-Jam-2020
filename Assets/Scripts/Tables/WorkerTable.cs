@@ -63,6 +63,7 @@ public class WorkerTable : Table
 
 		if (!IsBought) {
 			PlayerStatsManager.Instance.Efficiency += initialEfficiency;
+			FindObjectOfType<ProgressPanel>().IncreaseCounter(tableName);
 			Efficiency = initialEfficiency;
 
 			enabledOnBuy.SetActive(true);
