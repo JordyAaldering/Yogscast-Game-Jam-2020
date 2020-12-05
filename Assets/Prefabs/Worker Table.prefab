@@ -159,8 +159,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyCost: 5
   upgradeCostIncrease: 5
-  upgradeEfficiencyIncrease: 1
   initialEfficiency: 1
+  upgradeEfficiencyIncrease: 1
+  tableName: Elf Worker
+  description: Get an elf to make presents for you
+  cost: 0
+  efficiency: 0
+  bought: 0
   enabledOnBuy: {fileID: 4143294315586822985}
 --- !u!1001 &3311682488961266281
 PrefabInstance:

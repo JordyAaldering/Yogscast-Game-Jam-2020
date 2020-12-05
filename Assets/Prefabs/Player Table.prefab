@@ -106,7 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515bdf20561b66949b36d9fb14891211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyCost: 0
+  buyCost: 5
   upgradeCostIncrease: 5
-  upgradeEfficiencyIncrease: 1
   initialEfficiency: 1
+  upgradeEfficiencyIncrease: 1
+  tableName: Construction Table
+  description: Make your own toys
+  cost: 0
+  efficiency: 0
+  bought: 0
+  clickCooldown: 0.01

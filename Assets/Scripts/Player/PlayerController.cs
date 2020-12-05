@@ -5,11 +5,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float sensitivity;
 
-    private CharacterController cc;
+    private Table hoverObject;
+    private bool hasHover;
+
+    private CharacterController characterController;
+    private UpgradePanel upgradePanel;
 
     void Awake()
     {
-        cc = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterController>();
+
+        upgradePanel = FindObjectOfType<UpgradePanel>();
+        upgradePanel.gameObject.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -20,13 +27,15 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         RotateCamera();
 
-        if (Input.GetButtonDown("Fire1")) {
-            HandleClick();
-		}
+        GetHoverObject();
 
-        if (Input.GetKey(KeyCode.E)) {
-            HandleInteract();
-		}
+        if (hasHover && Input.GetButtonDown("Fire1")) {
+            hoverObject.HandleClick();
+        }
+
+        if (hasHover && Input.GetKey(KeyCode.E)) {
+            hoverObject.HandleInteract();
+        }
     }
 
     private void MovePlayer()
@@ -38,7 +47,7 @@ public class PlayerController : MonoBehaviour
         Vector3 right = transform.TransformDirection(Vector3.right);
         Vector3 moveDir = horizontal * right + vertical * forward;
 
-        cc.Move(speed * Time.deltaTime * moveDir);
+        characterController.Move(speed * Time.deltaTime * moveDir);
     }
 
     private void RotateCamera()
@@ -50,19 +59,15 @@ public class PlayerController : MonoBehaviour
         Camera.main.transform.rotation *= Quaternion.Euler(vertical, 0f, 0f);
     }
 
-    private void HandleClick()
+    private void GetHoverObject()
 	{
         Transform cam = Camera.main.transform;
         if (Physics.Raycast(cam.position, cam.forward, out var hit, 10f)) {
-            hit.collider.GetComponent<Table>()?.HandleClick();
-        }
-	}
-
-    private void HandleInteract()
-    {
-        Transform cam = Camera.main.transform;
-        if (Physics.Raycast(cam.position, cam.forward, out var hit, 10f)) {
-            hit.collider.GetComponent<Table>()?.HandleInteract();
+            hasHover = hit.collider.TryGetComponent(out hoverObject);
+            upgradePanel.gameObject.SetActive(hasHover);
+            if (hasHover) {
+                upgradePanel.SetInfo(hoverObject);
+			}
         }
     }
 }

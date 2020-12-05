@@ -9,15 +9,23 @@ public class WorkerTable : Table
 		
 	}
 
-	protected override void OnBuy()
+	public override void HandleInteract()
 	{
-		PlayerStatsManager.Instance.PresentsPM += initialEfficiency;
+		if (PlayerStatsManager.Instance.PresentsTotal < Cost) {
+			return;
+		}
 
-		enabledOnBuy.SetActive(true);
-	}
+		PlayerStatsManager.Instance.PresentsTotal -= Cost;
+		Cost += upgradeCostIncrease;
 
-	protected override void OnUpgrade()
-	{
-		PlayerStatsManager.Instance.PresentsPM += upgradeEfficiencyIncrease;
+		if (!IsBought) {
+			PlayerStatsManager.Instance.PresentsPM += initialEfficiency;
+
+			enabledOnBuy.SetActive(true);
+			IsBought = true;
+		} else {
+			PlayerStatsManager.Instance.PresentsPM += upgradeEfficiencyIncrease;
+			Efficiency += upgradeEfficiencyIncrease;
+		}
 	}
 }

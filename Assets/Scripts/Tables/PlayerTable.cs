@@ -5,6 +5,13 @@ public class PlayerTable : Table
 	[SerializeField] private float clickCooldown;
 	private float cooldown;
 
+	private void Awake()
+	{
+		Cost = buyCost;
+		Efficiency = initialEfficiency;
+		IsBought = true;
+	}
+
 	private void Update()
 	{
 		if (cooldown > 0f) {
@@ -15,18 +22,20 @@ public class PlayerTable : Table
 	public override void HandleClick()
 	{
 		if (cooldown <= 0f) {
-			PlayerStatsManager.Instance.PresentsTotal += efficiency;
+			PlayerStatsManager.Instance.PresentsTotal += Efficiency;
 			cooldown = clickCooldown;
 		}
 	}
 
-	protected override void OnBuy()
+	public override void HandleInteract()
 	{
-		Debug.LogError("player table is bought by default");
-	}
+		if (PlayerStatsManager.Instance.PresentsTotal < Cost) {
+			return;
+		}
 
-	protected override void OnUpgrade()
-	{
-		
+		PlayerStatsManager.Instance.PresentsTotal -= Cost;
+		Cost += upgradeCostIncrease;
+
+		Efficiency += upgradeEfficiencyIncrease;
 	}
 }

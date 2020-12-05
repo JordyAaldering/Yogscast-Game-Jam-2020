@@ -2,47 +2,24 @@
 
 public abstract class Table : MonoBehaviour
 {
-	[SerializeField] protected int buyCost;
-	[SerializeField] protected int upgradeCostIncrease;
-	[SerializeField] protected int initialEfficiency;
-	[SerializeField] protected int upgradeEfficiencyIncrease;
+	public int buyCost;
+	public int initialEfficiency;
+	public int upgradeCostIncrease;
+	public int upgradeEfficiencyIncrease;
 
-	protected int cost;
-	protected int efficiency;
+	public string tableName;
+	public string description;
 
-	private bool bought = false;
+	public int Cost { get; protected set; }
+	public int Efficiency { get; protected set; }
+	public bool IsBought { get; protected set; } = false;
 
 	private void Awake()
 	{
-		cost = buyCost;
-		efficiency = initialEfficiency;
+		Cost = buyCost;
+		Efficiency = initialEfficiency;
 	}
 
 	public abstract void HandleClick();
-
-	public void HandleInteract()
-	{
-		if (PlayerStatsManager.Instance.PresentsTotal < cost) {
-			return;
-		}
-
-		PlayerStatsManager.Instance.PresentsTotal -= cost;
-		cost += upgradeCostIncrease;
-
-		if (!bought) {
-			bought = true;
-
-			Debug.Log("table buy");
-			OnBuy();
-		} else {
-			efficiency += upgradeEfficiencyIncrease;
-
-			Debug.Log("table upgrade");
-			OnUpgrade();
-		}
-	}
-
-	protected abstract void OnBuy();
-
-	protected abstract void OnUpgrade();
+	public abstract void HandleInteract();
 }
