@@ -110,7 +110,7 @@ MonoBehaviour:
   initialEfficiency: 1
   upgradeCostIncrease: 5
   upgradeEfficiencyIncrease: 1
-  tableName: Construction Table
+  tableName: Workbench
   description: Make your own presents
   upgradeInfo: Make your own presents
   clickCooldown: 0.01
