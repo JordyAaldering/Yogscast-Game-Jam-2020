@@ -49,6 +49,10 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = horizontal * right + vertical * forward;
         moveDir *= Input.GetButton("Fire3") ? sprintSpeed : speed;
 
+        if (!characterController.isGrounded) {
+            moveDir.y -= 9.81f;
+        }
+
         characterController.Move(moveDir * Time.deltaTime);
     }
 
@@ -63,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
     private void GetHoverObject()
 	{
+        hasHover = false;
         Transform cam = Camera.main.transform;
         if (Physics.Raycast(cam.position, cam.forward, out var hit, interactRange)) {
             hasHover = hit.collider.TryGetComponent(out hoverObject);

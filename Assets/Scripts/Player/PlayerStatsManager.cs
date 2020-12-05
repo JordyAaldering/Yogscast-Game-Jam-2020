@@ -6,8 +6,7 @@ public class PlayerStatsManager : MonoBehaviour
 {
 	public static PlayerStatsManager Instance { get; private set; }
 
-	[SerializeField] private TextMeshProUGUI presentsTotalText;
-	[SerializeField] private TextMeshProUGUI presentsPMText;
+	[SerializeField] private TextMeshProUGUI statsText;
 
 	private int _presentsTotal = 0;
 	public int PresentsTotal {
@@ -45,7 +44,7 @@ public class PlayerStatsManager : MonoBehaviour
 
 	private void UpdateUI()
 	{
-		presentsTotalText.text = $"Presents: {PresentsTotal}";
-		presentsPMText.text = $"Efficiency: {Efficiency}";
+		statsText.text = $"Presents: {PresentsTotal}\n";
+		statsText.text += $"Efficiency: {Efficiency}";
 	}
 }
