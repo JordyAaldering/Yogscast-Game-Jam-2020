@@ -4,7 +4,7 @@ public abstract class Generator : MonoBehaviour
 {
 	public int buyCost;
 	public int initialEfficiency;
-	public int upgradeCostIncrease;
+	public float upgradeCostMultiplier;
 	public int upgradeEfficiencyIncrease;
 
 	public string tableName;

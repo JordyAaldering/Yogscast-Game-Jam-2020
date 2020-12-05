@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2795449647375266982}
   - component: {fileID: 5333671821403547383}
   m_Layer: 0
-  m_Name: Player Table
+  m_Name: Workbench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515bdf20561b66949b36d9fb14891211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyCost: 5
+  buyCost: 20
   initialEfficiency: 1
-  upgradeCostIncrease: 5
+  upgradeCostMultiplier: 1.2
   upgradeEfficiencyIncrease: 1
   tableName: Workbench
   description: Make your own presents

@@ -12,11 +12,14 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController characterController;
     private UpgradePanel upgradePanel;
+    private Animator animator;
 
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
         upgradePanel = FindObjectOfType<UpgradePanel>();
+        animator = GetComponentInChildren<Animator>();
+
         upgradePanel.gameObject.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -30,11 +33,14 @@ public class PlayerController : MonoBehaviour
 
         GetHoverObject();
 
-        if (hasHover && Input.GetButtonDown("Fire1")) {
-            hoverObject.HandleClick();
+        if (Input.GetButtonDown("Fire1")) {
+            animator.SetTrigger("doPunch");
+            if (hasHover) {
+                hoverObject.HandleClick();
+            }
         }
 
-        if (hasHover && Input.GetKey(KeyCode.E)) {
+        if (hasHover && Input.GetKeyDown(KeyCode.E)) {
             hoverObject.HandleInteract();
         }
     }
@@ -48,6 +54,8 @@ public class PlayerController : MonoBehaviour
         Vector3 right = transform.TransformDirection(Vector3.right);
         Vector3 moveDir = horizontal * right + vertical * forward;
         moveDir *= Input.GetButton("Fire3") ? sprintSpeed : speed;
+
+        animator.SetBool("isMoving", Vector3.Magnitude(moveDir) > float.Epsilon);
 
         if (!characterController.isGrounded) {
             moveDir.y -= 9.81f;

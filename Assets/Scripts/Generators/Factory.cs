@@ -54,7 +54,7 @@ public class Factory : Generator
 		}
 
 		PlayerStatsManager.Instance.PresentsTotal -= Cost;
-		Cost += upgradeCostIncrease;
+		Cost = (int)(Cost * upgradeCostMultiplier);
 
 		if (!IsBought) {
 			PlayerStatsManager.Instance.Efficiency += initialEfficiency;

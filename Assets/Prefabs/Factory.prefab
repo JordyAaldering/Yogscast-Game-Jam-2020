@@ -4839,9 +4839,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8bba85ecce34746b06dfb86c9930f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyCost: 100
+  buyCost: 1000
   initialEfficiency: 10
-  upgradeCostIncrease: 200
+  upgradeCostMultiplier: 1.5
   upgradeEfficiencyIncrease: 10
   tableName: Factory
   description: Doesn't require sleep

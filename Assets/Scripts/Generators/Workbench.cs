@@ -7,7 +7,7 @@ public class Workbench : Generator
 
 	private void Awake()
 	{
-		Cost = upgradeCostIncrease;
+		Cost = buyCost;
 		Efficiency = initialEfficiency;
 		IsBought = true;
 	}
@@ -34,7 +34,7 @@ public class Workbench : Generator
 		}
 
 		PlayerStatsManager.Instance.PresentsTotal -= Cost;
-		Cost += upgradeCostIncrease;
+		Cost = (int)(Cost * upgradeCostMultiplier);
 
 		Efficiency += upgradeEfficiencyIncrease;
 	}
