@@ -26,6 +26,7 @@ public class Factory : Generator
 		timeUntilBreak = Random.Range(minBreakWait, maxBreakWait);
 
 		enabledOnBreak.SetActive(false);
+		enabledOnBuy.SetActive(false);
 	}
 
 	private void Update()
