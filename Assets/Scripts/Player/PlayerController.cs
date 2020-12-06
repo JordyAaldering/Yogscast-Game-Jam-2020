@@ -40,8 +40,17 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (hasHover && Input.GetKeyDown(KeyCode.E)) {
-            hoverObject.HandleInteract();
+        if (Input.GetKeyDown(KeyCode.E)) {
+            if (hasHover) {
+                hoverObject.HandleInteract();
+            } else {
+                Transform cam = Camera.main.transform;
+                if (Physics.Raycast(cam.position, cam.forward, out var hit, interactRange)) {
+                    if (hit.collider.TryGetComponent<RewardSled>(out var sled)) {
+                        sled.ClaimReward();
+                    }
+                }
+            }
         }
     }
 

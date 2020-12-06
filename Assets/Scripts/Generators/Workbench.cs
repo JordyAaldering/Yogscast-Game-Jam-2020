@@ -23,6 +23,7 @@ public class Workbench : Generator
 	{
 		if (cooldown <= 0f) {
 			PlayerStatsManager.Instance.PresentsTotal += Efficiency;
+			PlayerStatsManager.Instance.Happiness += Efficiency * PlayerStatsManager.Instance.HappinessModifier;
 			cooldown = clickCooldown;
 		}
 	}

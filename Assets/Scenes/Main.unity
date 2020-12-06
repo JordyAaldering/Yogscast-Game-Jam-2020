@@ -4083,9 +4083,7 @@ MonoBehaviour:
     Progress 3: 99/99
 
     Progress
-    4: 99/99
-
-    Progress 5: 99/99'
+    4: 99/99'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e0ab5ccdcc48d0245862abafb0541b02, type: 2}
   m_sharedMaterial: {fileID: 1836761096098602, guid: e0ab5ccdcc48d0245862abafb0541b02,
@@ -18305,7 +18303,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 3, y: -3}
-  m_SizeDelta: {x: 81, y: 32}
+  m_SizeDelta: {x: 120, y: 45}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1807954087
 MonoBehaviour:
@@ -18357,6 +18355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsText: {fileID: 2122503804}
+  happinessModifier: 0.1
 --- !u!4 &1808327406 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4301529661490574610, guid: 0d21da08a8a251e4ebf004c79d0d2859,
@@ -19968,7 +19967,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3, y: -3}
-  m_SizeDelta: {x: 115, y: 73}
+  m_SizeDelta: {x: 115, y: 60}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1977547581
 MonoBehaviour:
@@ -21447,9 +21446,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Presents: 999
+  m_text: 'Presents: 99999
 
-    Efficiency: 999'
+    Efficiency: 99999
+
+    Happiness: 99999'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e0ab5ccdcc48d0245862abafb0541b02, type: 2}
   m_sharedMaterial: {fileID: 1836761096098602, guid: e0ab5ccdcc48d0245862abafb0541b02,
@@ -21493,7 +21494,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -22329,6 +22330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e24733ad687fc49942ed604d5ddc69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledOnReady: {fileID: 1773414285}
+  happinessRequired: 100
+  happinessMultiplier: 2
 --- !u!23 &1375448546308141406
 MeshRenderer:
   m_ObjectHideFlags: 0
