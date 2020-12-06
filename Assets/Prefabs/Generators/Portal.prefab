@@ -111,8 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyCost: 50000
   initialEfficiency: 125
-  upgradeCostMultiplier: 1.4
-  upgradeEfficiencyIncrease: 100
+  upgradeCostMultiplier: 1.3
+  upgradeEfficiencyIncrease: 150
   tableName: Portal
   description: A portal to another dimension
   upgradeInfo: Hire yoglabs to increase portal efficiency

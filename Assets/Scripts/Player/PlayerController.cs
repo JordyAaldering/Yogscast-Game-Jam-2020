@@ -86,7 +86,12 @@ public class PlayerController : MonoBehaviour
         float vertical = -sensitivity * Input.GetAxis("Mouse Y");
 
         transform.rotation *= Quaternion.Euler(0f, horizontal, 0f);
-        Camera.main.transform.rotation *= Quaternion.Euler(vertical, 0f, 0f);
+
+        Transform cam = Camera.main.transform;
+        cam.rotation *= Quaternion.Euler(vertical, 0f, 0f);
+        float angle = cam.rotation.eulerAngles.x;
+        angle = (angle > 60f && angle < 150f) ? 60f : ((angle < 280f && angle > 150f) ? 280f : angle);
+        cam.localRotation = Quaternion.Euler(angle, 0f, 0f);
     }
 
     private void GetHoverObject()

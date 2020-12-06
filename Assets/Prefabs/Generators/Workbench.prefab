@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyCost: 30
   initialEfficiency: 1
-  upgradeCostMultiplier: 1.3
+  upgradeCostMultiplier: 1.15
   upgradeEfficiencyIncrease: 1
   tableName: Workbench
   description: Make your own presents

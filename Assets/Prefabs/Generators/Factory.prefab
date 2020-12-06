@@ -4844,7 +4844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyCost: 7500
   initialEfficiency: 50
-  upgradeCostMultiplier: 1.35
+  upgradeCostMultiplier: 1.25
   upgradeEfficiencyIncrease: 75
   tableName: Factory
   description: Doesn't require sleep
@@ -4854,8 +4854,8 @@ MonoBehaviour:
   audioChance: 0.01
   punchSound: {fileID: 8300000, guid: eff37e4a4fae358479506d3396c1741b, type: 3}
   machineSound: {fileID: 8300000, guid: a37095224747b19418e8f313106b5994, type: 3}
-  minBreakWait: 150
-  maxBreakWait: 300
+  minBreakWait: 180
+  maxBreakWait: 350
 --- !u!82 &5129813097537716929
 AudioSource:
   m_ObjectHideFlags: 0

@@ -5448,9 +5448,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buyCost: 50
-  initialEfficiency: 3
+  initialEfficiency: 2
   upgradeCostMultiplier: 1.2
-  upgradeEfficiencyIncrease: 2
+  upgradeEfficiencyIncrease: 3
   tableName: Elf Worker
   description: A not so hard working elf; punch to wake
   upgradeInfo: Make the elf work faster and sleep less
@@ -5461,8 +5461,8 @@ MonoBehaviour:
   audioChance: 0.3
   punchSound: {fileID: 8300000, guid: eff37e4a4fae358479506d3396c1741b, type: 3}
   hammerSound: {fileID: 8300000, guid: 6c9c8821b26556141bd3af357c76f44d, type: 3}
-  minSleepWait: 90
-  maxSleepWait: 150
+  minSleepWait: 75
+  maxSleepWait: 200
 --- !u!82 &4173055841555236994
 AudioSource:
   m_ObjectHideFlags: 0
