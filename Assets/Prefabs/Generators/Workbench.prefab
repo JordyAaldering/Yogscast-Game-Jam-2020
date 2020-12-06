@@ -121,8 +121,8 @@ MonoBehaviour:
   upgradeCostMultiplier: 1.15
   upgradeEfficiencyIncrease: 1
   tableName: Workbench
-  description: Make your own presents
-  upgradeInfo: Make your own presents
+  description: '[Left Mouse ]Make your own presents'
+  upgradeInfo: '[Left Mouse] Make your own presents'
   clickCooldown: 0.01
   hammerSound: {fileID: 8300000, guid: 641de69a24e5ec74c8759714dd0cfdbe, type: 3}
 --- !u!82 &4445382892005466056

@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
                 hoverObject.HandleClick();
             } else {
                 Transform cam = Camera.main.transform;
-                if (Physics.Raycast(cam.position, cam.forward, out var hit, interactRange)) {
+                if (Physics.Raycast(cam.position, cam.forward, out var hit, interactRange * 2f)) {
                     if (hit.collider.TryGetComponent(out Secret secret)) {
                         secret.Claim();
                     }
