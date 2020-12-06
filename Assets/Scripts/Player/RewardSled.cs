@@ -9,14 +9,18 @@ public class RewardSled : MonoBehaviour
     [SerializeField] private float happinessMultiplier;
     public int HappinessRequired => happinessRequired;
 
+    [SerializeField] private AudioClip pingSound;
     [SerializeField] private GameObject rewardParticles;
     [SerializeField] private TextMeshProUGUI rewardText;
     [SerializeField] private List<string> rewardStrings;
 
     public bool RewardReady { get; private set; }
 
+    private AudioSource audioSource;
+
 	private void Awake()
 	{
+        audioSource = GetComponent<AudioSource>();
         enabledOnReady.SetActive(false);
 	}
 
@@ -36,6 +40,7 @@ public class RewardSled : MonoBehaviour
             enabledOnReady.SetActive(false);
             RewardReady = false;
 
+            audioSource.PlayOneShot(pingSound);
             rewardParticles.SetActive(true);
             rewardText.gameObject.SetActive(true);
             rewardText.text = rewardStrings[Random.Range(0, rewardStrings.Count)];
