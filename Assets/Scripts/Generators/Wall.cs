@@ -15,6 +15,7 @@
 		if (PlayerStatsManager.Instance.PresentsTotal >= Cost) {
 			PlayerStatsManager.Instance.PresentsTotal -= Cost;
 			gameObject.SetActive(false);
+			FindObjectOfType<ProgressPanel>().IncreaseCounter(tableName);
 			IsBought = true;
 		}
 	}

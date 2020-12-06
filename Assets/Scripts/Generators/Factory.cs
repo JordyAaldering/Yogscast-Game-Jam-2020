@@ -3,6 +3,7 @@
 public class Factory : Generator
 {
 	[SerializeField] private GameObject enabledOnBreak;
+	[SerializeField] private GameObject enabledOnBuy;
 
 	[SerializeField] private float audioChance;
 	[SerializeField] private AudioClip punchSound;
@@ -74,6 +75,7 @@ public class Factory : Generator
 			FindObjectOfType<ProgressPanel>().IncreaseCounter(tableName);
 			Efficiency = initialEfficiency;
 
+			enabledOnBuy.SetActive(true);
 			IsBought = true;
 		} else {
 			PlayerStatsManager.Instance.Efficiency += upgradeEfficiencyIncrease;
