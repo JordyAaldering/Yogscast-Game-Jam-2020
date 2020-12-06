@@ -3,10 +3,15 @@
 public class Workbench : Generator
 {
 	[SerializeField] private float clickCooldown;
+	[SerializeField] private AudioClip hammerSound;
 	private float cooldown;
+
+	private AudioSource audioSource;
 
 	private void Awake()
 	{
+		audioSource = GetComponent<AudioSource>();
+
 		Cost = buyCost;
 		Efficiency = initialEfficiency;
 		IsBought = true;
@@ -25,6 +30,10 @@ public class Workbench : Generator
 			PlayerStatsManager.Instance.PresentsTotal += Efficiency;
 			PlayerStatsManager.Instance.Happiness += Efficiency * PlayerStatsManager.Instance.HappinessModifier;
 			cooldown = clickCooldown;
+
+			if (!audioSource.isPlaying) {
+				audioSource.PlayOneShot(hammerSound);
+			}
 		}
 	}
 

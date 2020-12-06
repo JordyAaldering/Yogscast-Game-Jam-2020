@@ -6,13 +6,21 @@ public class ElfWorker : Generator
 	[SerializeField] private Animator workerAnimator;
 	[SerializeField] private GameObject sleepIcon;
 
+	[SerializeField] private float audioChance;
+	[SerializeField] private AudioClip punchSound;
+	[SerializeField] private AudioClip hammerSound;
+
 	[SerializeField] private float minSleepWait;
 	[SerializeField] private float maxSleepWait;
 	private float timeUntilSleep;
 	private bool isSleeping;
 
+	private AudioSource audioSource;
+
 	private void Awake()
 	{
+		audioSource = GetComponent<AudioSource>();
+
 		Cost = buyCost;
 		timeUntilSleep = Random.Range(minSleepWait, maxSleepWait);
 
@@ -31,6 +39,10 @@ public class ElfWorker : Generator
 		} else if (!isSleeping) {
 			PlayerStatsManager.Instance.Efficiency -= Efficiency;
 
+			if (!audioSource.isPlaying && Random.Range(0f, 1f) < audioChance) {
+				audioSource.PlayOneShot(hammerSound);
+			}
+
 			workerAnimator.SetBool("isSleeping", true);
 			sleepIcon.SetActive(true);
 			isSleeping = true;
@@ -42,7 +54,8 @@ public class ElfWorker : Generator
 		if (isSleeping) {
 			PlayerStatsManager.Instance.Efficiency += Efficiency;
 			timeUntilSleep = Random.Range(minSleepWait, maxSleepWait);
-			
+
+			audioSource.PlayOneShot(punchSound);
 			workerAnimator.SetBool("isSleeping", false);
 			sleepIcon.SetActive(false);
 			isSleeping = false;

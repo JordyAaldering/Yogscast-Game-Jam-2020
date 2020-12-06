@@ -4,13 +4,21 @@ public class Factory : Generator
 {
 	[SerializeField] private GameObject enabledOnBreak;
 
+	[SerializeField] private float audioChance;
+	[SerializeField] private AudioClip punchSound;
+	[SerializeField] private AudioClip machineSound;
+
 	[SerializeField] private float minBreakWait;
 	[SerializeField] private float maxBreakWait;
 	private float timeUntilBreak;
 	private bool isBroken;
 
+	private AudioSource audioSource;
+
 	private void Awake()
 	{
+		audioSource = GetComponent<AudioSource>();
+
 		Cost = buyCost;
 		timeUntilBreak = Random.Range(minBreakWait, maxBreakWait);
 
@@ -28,6 +36,10 @@ public class Factory : Generator
 		} else if (!isBroken) {
 			PlayerStatsManager.Instance.Efficiency -= Efficiency;
 
+			if (!audioSource.isPlaying && Random.Range(0f, 1f) < audioChance) {
+				audioSource.PlayOneShot(machineSound);
+			}
+
 			enabledOnBreak.SetActive(true);
 			isBroken = true;
 		}
@@ -39,6 +51,7 @@ public class Factory : Generator
 			PlayerStatsManager.Instance.Efficiency += Efficiency;
 			timeUntilBreak = Random.Range(minBreakWait, maxBreakWait);
 
+			audioSource.PlayOneShot(punchSound);
 			enabledOnBreak.SetActive(false);
 			isBroken = false;
 		}

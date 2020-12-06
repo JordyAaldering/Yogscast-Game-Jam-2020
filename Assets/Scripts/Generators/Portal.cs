@@ -6,14 +6,29 @@ public class Portal : Generator
 	[SerializeField] private float clickCooldown;
 	private float cooldown;
 
+	[SerializeField] private float audioChance;
+	[SerializeField] private AudioClip jingleSound;
+
+	private AudioSource audioSource;
+
 	private void Awake()
 	{
+		audioSource = GetComponent<AudioSource>();
+
 		Cost = buyCost;
 		enabledOnBuy.SetActive(false);
 	}
 
 	private void Update()
 	{
+		if (!IsBought) {
+			return;
+		}
+
+		if (!audioSource.isPlaying && Random.Range(0f, 1f) < audioChance) {
+			audioSource.PlayOneShot(jingleSound);
+		}
+
 		if (cooldown > 0f) {
 			cooldown -= Time.deltaTime;
 		}
@@ -21,7 +36,7 @@ public class Portal : Generator
 
 	public override void HandleClick()
 	{
-		if (cooldown <= 0f) {
+		if (IsBought && cooldown <= 0f) {
 			PlayerStatsManager.Instance.PresentsTotal += Efficiency;
 			PlayerStatsManager.Instance.Happiness += Efficiency * PlayerStatsManager.Instance.HappinessModifier;
 			cooldown = clickCooldown;
