@@ -14,6 +14,8 @@ public class Factory : Generator
 	private float timeUntilBreak;
 	private bool isBroken;
 
+	public static bool RepairAllBroken { get; set; }
+
 	private AudioSource audioSource;
 
 	private void Awake()
@@ -47,6 +49,17 @@ public class Factory : Generator
 	}
 
 	public override void HandleClick()
+	{
+		if (RepairAllBroken) {
+			foreach (var fac in FindObjectsOfType<Factory>()) {
+				fac.Repair();
+			}
+		} else {
+			Repair();
+		}
+	}
+
+	public void Repair()
 	{
 		if (isBroken) {
 			PlayerStatsManager.Instance.Efficiency += Efficiency;

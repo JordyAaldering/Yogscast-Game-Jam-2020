@@ -92,6 +92,18 @@ public class RewardSled : MonoBehaviour
 		FindObjectOfType<PlayerController>().interactRange += 0.5f;
 	}
 
+	public void FixAllElves()
+	{
+		SetText("You can now wake all elves at once!");
+		ElfWorker.WakeAllSleeping = true;
+	}
+
+	public void FixAllFactories()
+	{
+		SetText("You can now repair all factories at once!");
+		Factory.RepairAllBroken = true;
+	}
+
 	private void SetText(string msg)
 	{
 		rewardText.gameObject.SetActive(true);

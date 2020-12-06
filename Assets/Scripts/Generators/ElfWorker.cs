@@ -15,6 +15,8 @@ public class ElfWorker : Generator
 	private float timeUntilSleep;
 	private bool isSleeping;
 
+	public static bool WakeAllSleeping { get; set; }
+
 	private AudioSource audioSource;
 
 	private void Awake()
@@ -50,6 +52,17 @@ public class ElfWorker : Generator
 	}
 
 	public override void HandleClick()
+	{
+		if (WakeAllSleeping) {
+			foreach (var elf in FindObjectsOfType<ElfWorker>()) {
+				elf.WakeUp();
+			}
+		} else {
+			WakeUp();
+		}
+	}
+
+	public void WakeUp()
 	{
 		if (isSleeping) {
 			PlayerStatsManager.Instance.Efficiency += Efficiency;
