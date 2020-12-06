@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515bdf20561b66949b36d9fb14891211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyCost: 20
+  buyCost: 30
   initialEfficiency: 1
-  upgradeCostMultiplier: 1.2
+  upgradeCostMultiplier: 1.3
   upgradeEfficiencyIncrease: 1
   tableName: Workbench
   description: Make your own presents
