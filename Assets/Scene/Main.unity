@@ -2942,7 +2942,6 @@ GameObject:
   - component: {fileID: 149076644}
   - component: {fileID: 149076649}
   - component: {fileID: 149076645}
-  - component: {fileID: 149076646}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3064,19 +3063,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &149076646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149076643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b25a0126ba4f623408d4daf59706368d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableCanvas: {fileID: 1381104235}
 --- !u!33 &149076647
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15826,7 +15812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da83d5b240da214ab7122da9b4439eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyCost: 50
+  buyCost: 15
   initialEfficiency: 0
   upgradeCostMultiplier: 0
   upgradeEfficiencyIncrease: 0
@@ -29960,10 +29946,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Your goal is to make presents and create happiness. Get started by punching
     your workbench in the shed to make presents, later you can buy things to automate
-    this process. You might also get presents by finding secrets!
+    this process. You can also get presents by finding secrets!
 
     With enough
-    happiness you can unlock new surprise mechanics in the sled.'
+    happiness you can unlock new surprise mechanics in the sled behind you.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e0ab5ccdcc48d0245862abafb0541b02, type: 2}
   m_sharedMaterial: {fileID: 1836761096098602, guid: e0ab5ccdcc48d0245862abafb0541b02,
