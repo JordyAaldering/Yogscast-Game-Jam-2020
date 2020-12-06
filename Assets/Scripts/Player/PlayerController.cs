@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (SettingsPanel.IsOpen) {
+            return;
+		}
+
         MovePlayer();
         RotateCamera();
 
@@ -39,11 +43,6 @@ public class PlayerController : MonoBehaviour
             if (hasHover) {
                 hoverObject.HandleClick();
             }
-
-            if (Cursor.visible) {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
@@ -53,11 +52,6 @@ public class PlayerController : MonoBehaviour
                 rewardObject.ClaimReward();
             }
         }
-
-        if (!Cursor.visible && Input.GetKeyDown(KeyCode.Escape)) {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-		}
     }
 
     private void MovePlayer()
