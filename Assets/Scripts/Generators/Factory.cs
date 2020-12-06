@@ -14,7 +14,8 @@ public class Factory : Generator
 	private float timeUntilBreak;
 	private bool isBroken;
 
-	public static bool RepairAllBroken { get; set; }
+	public static int BreakBonus { get; set; } = 0;
+	public static bool RepairAllBroken { get; set; } = false;
 
 	private AudioSource audioSource;
 
@@ -64,7 +65,7 @@ public class Factory : Generator
 	{
 		if (isBroken) {
 			PlayerStatsManager.Instance.Efficiency += Efficiency;
-			timeUntilBreak = Random.Range(minBreakWait, maxBreakWait);
+			timeUntilBreak = Random.Range(minBreakWait, maxBreakWait) + BreakBonus;
 
 			audioSource.PlayOneShot(punchSound);
 			enabledOnBreak.SetActive(false);

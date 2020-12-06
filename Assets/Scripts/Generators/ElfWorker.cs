@@ -4,6 +4,7 @@ public class ElfWorker : Generator
 {
 	[SerializeField] private GameObject enabledOnBuy;
 	[SerializeField] private Animator workerAnimator;
+	[SerializeField] private GameObject wakeEffect;
 	[SerializeField] private GameObject sleepIcon;
 
 	[SerializeField] private float audioChance;
@@ -15,7 +16,8 @@ public class ElfWorker : Generator
 	private float timeUntilSleep;
 	private bool isSleeping;
 
-	public static bool WakeAllSleeping { get; set; }
+	public static bool WakeAllSleeping { get; set; } = false;
+	public static int SleepBonus { get; set; } = 0;
 
 	private AudioSource audioSource;
 
@@ -66,9 +68,10 @@ public class ElfWorker : Generator
 	{
 		if (isSleeping) {
 			PlayerStatsManager.Instance.Efficiency += Efficiency;
-			timeUntilSleep = Random.Range(minSleepWait, maxSleepWait);
+			timeUntilSleep = Random.Range(minSleepWait, maxSleepWait) + SleepBonus;
 
 			audioSource.PlayOneShot(punchSound);
+			wakeEffect.SetActive(true);
 			workerAnimator.SetBool("isSleeping", false);
 			sleepIcon.SetActive(false);
 			isSleeping = false;

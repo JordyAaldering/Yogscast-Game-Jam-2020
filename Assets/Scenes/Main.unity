@@ -6818,7 +6818,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.806482, y: 35.43692, z: 10.806482}
+  m_Size: {x: 34.03, y: 48.9, z: 21.4}
   m_Center: {x: -1.2874675e-20, y: 0.0000009536748, z: -4.065757e-20}
 --- !u!1 &373956091
 GameObject:
@@ -17846,7 +17846,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.806482, y: 35.43692, z: 10.806482}
+  m_Size: {x: 34.03, y: 48.9, z: 21.4}
   m_Center: {x: -1.2874675e-20, y: 0.0000009536748, z: -4.065757e-20}
 --- !u!1001 &758960834
 PrefabInstance:
@@ -20764,7 +20764,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.806482, y: 35.43692, z: 10.806482}
+  m_Size: {x: 34.03, y: 48.9, z: 21.4}
   m_Center: {x: -1.2874675e-20, y: 0.0000009536748, z: -4.065757e-20}
 --- !u!1001 &927040742
 PrefabInstance:
@@ -28445,12 +28445,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Your goal is to make presents and create happiness. Get started in the
-    shed to make presents, then buy things to automate this process. You might also
-    get presents by finding secrets!
+  m_text: 'Your goal is to make presents and create happiness. Get started by punching
+    your workbench in the shed to make presents, later you can buy things to automate
+    this process. You might also get presents by finding secrets!
 
-    With enough happiness you can unlock new
-    surprise mechanics in the sled.'
+    With enough
+    happiness you can unlock new surprise mechanics in the sled.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e0ab5ccdcc48d0245862abafb0541b02, type: 2}
   m_sharedMaterial: {fileID: 1836761096098602, guid: e0ab5ccdcc48d0245862abafb0541b02,
@@ -33800,7 +33800,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.806482, y: 35.43692, z: 10.806482}
+  m_Size: {x: 34.03, y: 48.9, z: 21.4}
   m_Center: {x: -1.2874675e-20, y: 0.0000009536748, z: -4.065757e-20}
 --- !u!4 &1723584808 stripped
 Transform:
@@ -46171,6 +46171,32 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1052816676945259579}
         m_MethodName: FixAllFactories
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052816676945259579}
+        m_MethodName: ElfBreakBonus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052816676945259579}
+        m_MethodName: FactoryBreakBonus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

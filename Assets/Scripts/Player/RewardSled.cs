@@ -58,20 +58,32 @@ public class RewardSled : MonoBehaviour
 
 	public void ElfEfficiencyBonus()
 	{
-		SetText("Your elves are now slightly more efficienct!");
+		SetText("Your elves are now slightly more efficient!");
 		PlayerStatsManager.Instance.Efficiency += progress.progress["Elf Worker"].Item1;
 	}
 
 	public void FactoryEfficiencyBonus()
 	{
-		SetText("Your factories are now slightly more efficienct!");
+		SetText("Your factories are now slightly more efficient!");
 		PlayerStatsManager.Instance.Efficiency += progress.progress["Factory"].Item1 * 10;
 	}
 
 	public void PortalEfficiencyBonus()
 	{
-		SetText("The portal is now slightly more efficienct!");
+		SetText("The portal is now slightly more efficient!");
 		PlayerStatsManager.Instance.Efficiency += progress.progress["Portal"].Item1 * 100;
+	}
+
+	public void ElfBreakBonus()
+	{
+		SetText("Elves now require less sleep!");
+		ElfWorker.SleepBonus += 10;
+	}
+
+	public void FactoryBreakBonus()
+	{
+		SetText("Your factories will now break down less!");
+		Factory.BreakBonus += 10;
 	}
 
 	public void WalkSpeed()

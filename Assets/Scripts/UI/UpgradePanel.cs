@@ -16,7 +16,7 @@ public class UpgradePanel : MonoBehaviour
         } else {
             titleText.text = $"[E] Upgrade {table.tableName}";
             upgradeText.text = $"Cost: {table.Cost} Presents\n";
-            upgradeText.text += $"New Efficiency: {table.Efficiency + table.upgradeEfficiencyIncrease}\n";
+            upgradeText.text += $"Efficiency: {table.Efficiency} -> {table.Efficiency + table.upgradeEfficiencyIncrease}\n";
             upgradeText.text += table.upgradeInfo;
         }
     }
