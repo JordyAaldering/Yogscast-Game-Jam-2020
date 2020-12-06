@@ -705,8 +705,8 @@ MonoBehaviour:
   audioChance: 0.3
   punchSound: {fileID: 8300000, guid: eff37e4a4fae358479506d3396c1741b, type: 3}
   hammerSound: {fileID: 8300000, guid: 6c9c8821b26556141bd3af357c76f44d, type: 3}
-  minSleepWait: 60
-  maxSleepWait: 120
+  minSleepWait: 90
+  maxSleepWait: 150
 --- !u!82 &4173055841555236994
 AudioSource:
   m_ObjectHideFlags: 0

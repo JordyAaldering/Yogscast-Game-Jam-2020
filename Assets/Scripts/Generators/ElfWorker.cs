@@ -83,8 +83,8 @@ public class ElfWorker : Generator
 			IsBought = true;
 		} else {
 			PlayerStatsManager.Instance.Efficiency += upgradeEfficiencyIncrease;
-			minSleepWait += upgradeEfficiencyIncrease;
-			maxSleepWait += upgradeEfficiencyIncrease;
+			minSleepWait += upgradeEfficiencyIncrease * 5;
+			maxSleepWait += upgradeEfficiencyIncrease * 6;
 			Efficiency += upgradeEfficiencyIncrease;
 		}
 	}

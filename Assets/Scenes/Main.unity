@@ -2576,6 +2576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25a0126ba4f623408d4daf59706368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableCanvas: {fileID: 1381104235}
 --- !u!33 &149076647
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42481,12 +42482,11 @@ MonoBehaviour:
   rewardParticles: {fileID: 422691439}
   rewardText: {fileID: 1878533136}
   rewardStrings:
-  - You got a new skin!
-  - You unlocked a new pack!
   - Elves will sleep less for 5 minutes!
   - Factories will break down less for 5 minutes!
   - Elves are slightly more efficient for 5 minutes!
   - Factories are slightly more efficient for 5 minutes!
+  - The portal is slightly more efficient for 5 minutes!
 --- !u!65 &1052816676945259580
 BoxCollider:
   m_ObjectHideFlags: 0
