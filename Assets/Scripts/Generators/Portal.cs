@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Portal : Generator
 {
@@ -6,7 +7,8 @@ public class Portal : Generator
 	[SerializeField] private float clickCooldown;
 	private float cooldown;
 
-	[SerializeField] private float audioChance;
+	[SerializeField] private float audioWaitMin;
+	[SerializeField] private float audioWaitMax;
 	[SerializeField] private AudioClip jingleSound;
 
 	private AudioSource audioSource;
@@ -21,16 +23,18 @@ public class Portal : Generator
 
 	private void Update()
 	{
-		if (!IsBought) {
-			return;
-		}
-
-		if (!audioSource.isPlaying && Random.Range(0f, 1f) < audioChance) {
-			audioSource.PlayOneShot(jingleSound);
-		}
-
-		if (cooldown > 0f) {
+		if (IsBought && cooldown > 0f) {
 			cooldown -= Time.deltaTime;
+		}
+	}
+
+	private IEnumerator AudioLoop()
+	{
+		while (true) {
+			if (!audioSource.isPlaying) {
+				audioSource.PlayOneShot(jingleSound);
+			}
+			yield return new WaitForSeconds(Random.Range(audioWaitMin, audioWaitMax));
 		}
 	}
 
@@ -56,6 +60,8 @@ public class Portal : Generator
 			PlayerStatsManager.Instance.Efficiency += initialEfficiency;
 			FindObjectOfType<ProgressPanel>().IncreaseCounter(tableName);
 			Efficiency = initialEfficiency;
+
+			StartCoroutine(AudioLoop());
 
 			enabledOnBuy.SetActive(true);
 			IsBought = true;
