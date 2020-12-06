@@ -5,6 +5,7 @@ public class SettingsPanel : MonoBehaviour
 {
 	[SerializeField] private GameObject settingsPanel;
 	[SerializeField] private TextMeshProUGUI quitText;
+	[SerializeField] private AudioSource musicSource;
 
 	private bool confirmedQuit = false;
 
@@ -24,6 +25,11 @@ public class SettingsPanel : MonoBehaviour
 				OpenSettings();
 			}
 		}
+	}
+
+	public void MusicVolume(float val)
+	{
+		musicSource.volume = val;
 	}
 
 	public void OpenSettings()
