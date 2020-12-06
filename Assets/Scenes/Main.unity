@@ -16769,7 +16769,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Thank you for playing GAME TITLE
+  m_text: Thank you for playing Santa Clicker Tycoon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e8f63699931625c4c8df5045f990a995, type: 2}
   m_sharedMaterial: {fileID: 1502403935788925648, guid: e8f63699931625c4c8df5045f990a995,
@@ -16797,8 +16797,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
