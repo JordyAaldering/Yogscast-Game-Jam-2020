@@ -42,6 +42,13 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("doPunch");
             if (hasHover) {
                 hoverObject.HandleClick();
+            } else {
+                Transform cam = Camera.main.transform;
+                if (Physics.Raycast(cam.position, cam.forward, out var hit, interactRange)) {
+                    if (hit.collider.TryGetComponent(out Secret secret)) {
+                        secret.Claim();
+                    }
+                }
             }
         }
 
