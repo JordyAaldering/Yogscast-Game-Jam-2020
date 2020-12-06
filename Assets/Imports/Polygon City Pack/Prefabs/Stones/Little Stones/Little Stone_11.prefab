@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4951604813488484}
   - component: {fileID: 33377939027320658}
   - component: {fileID: 23326757516290360}
-  - component: {fileID: 64222517362655542}
   m_Layer: 0
   m_Name: Little Stone_11
   m_TagString: Untagged
@@ -80,17 +79,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &64222517362655542
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298396748475852}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300118, guid: 7c481f901e6fd6544a2901233ce8f8b2, type: 3}
