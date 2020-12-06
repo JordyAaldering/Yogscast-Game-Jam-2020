@@ -6,7 +6,9 @@ public class ScreenShotter : MonoBehaviour
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.F12)) {
-			ScreenCapture.CaptureScreenshot($"Screenshots/{DateTime.Now}");
+			string path = $"Screenshots/{DateTime.Now:s}";
+			ScreenCapture.CaptureScreenshot(path);
+			Debug.Log($"Screenshot saved to {path}");
 		}
 	}
 }

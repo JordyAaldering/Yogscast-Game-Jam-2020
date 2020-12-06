@@ -26,7 +26,7 @@ public class RewardSled : MonoBehaviour
 
 	public void CheckRewardReady()
 	{
-        if (!RewardReady && PlayerStatsManager.Instance.Happiness > happinessRequired) {
+        if (!RewardReady && PlayerStatsManager.Instance.Happiness >= happinessRequired) {
             enabledOnReady.SetActive(true);
             RewardReady = true;
 		}
@@ -42,9 +42,10 @@ public class RewardSled : MonoBehaviour
 
             audioSource.PlayOneShot(pingSound);
             rewardParticles.SetActive(true);
+
             rewardText.gameObject.SetActive(true);
             rewardText.text = rewardStrings[Random.Range(0, rewardStrings.Count)];
-            rewardText.GetComponentInParent<DisableAfter>().Activate();
+            StartCoroutine(rewardText.GetComponentInParent<DisableAfter>().Activate());
         }
     }
 }
