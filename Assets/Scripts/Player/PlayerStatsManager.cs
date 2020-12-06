@@ -10,7 +10,7 @@ public class PlayerStatsManager : MonoBehaviour
 	[SerializeField] private float happinessModifier;
 	public float HappinessModifier => Random.Range(0.75f * happinessModifier, 1.1f * happinessModifier);
 
-	private int _presentsTotal = 1000000;
+	private int _presentsTotal = 0;
 	public int PresentsTotal {
 		get => _presentsTotal;
 		set {
