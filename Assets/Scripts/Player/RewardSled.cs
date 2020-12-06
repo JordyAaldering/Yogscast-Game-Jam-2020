@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RewardSled : MonoBehaviour
 {
@@ -11,15 +12,18 @@ public class RewardSled : MonoBehaviour
 
     [SerializeField] private AudioClip pingSound;
     [SerializeField] private GameObject rewardParticles;
+
     [SerializeField] private TextMeshProUGUI rewardText;
-    [SerializeField] private List<string> rewardStrings;
+	[SerializeField] private List<UnityEvent> rewards;
 
     public bool RewardReady { get; private set; }
 
     private AudioSource audioSource;
+    private ProgressPanel progress;
 
-	private void Awake()
-	{
+    private void Awake()
+    {
+        progress = FindObjectOfType<ProgressPanel>();
         audioSource = GetComponent<AudioSource>();
         enabledOnReady.SetActive(false);
 	}
@@ -43,9 +47,56 @@ public class RewardSled : MonoBehaviour
             audioSource.PlayOneShot(pingSound);
             rewardParticles.SetActive(true);
 
-            rewardText.gameObject.SetActive(true);
-            rewardText.text = rewardStrings[Random.Range(0, rewardStrings.Count)];
-            StartCoroutine(rewardText.GetComponentInParent<DisableAfter>().Activate());
-        }
+            int index = UnityEngine.Random.Range(0, rewards.Count);
+			rewards[index].Invoke();
+		}
     }
+
+	/*
+     * Rewards
+     */
+
+	public void ElfEfficiencyBonus()
+	{
+		SetText("Your elves are now slightly more efficienct!");
+		PlayerStatsManager.Instance.Efficiency += progress.progress["Elf Worker"].Item1;
+	}
+
+	public void FactoryEfficiencyBonus()
+	{
+		SetText("Your factories are now slightly more efficienct!");
+		PlayerStatsManager.Instance.Efficiency += progress.progress["Factory"].Item1 * 10;
+	}
+
+	public void PortalEfficiencyBonus()
+	{
+		SetText("The portal is now slightly more efficienct!");
+		PlayerStatsManager.Instance.Efficiency += progress.progress["Portal"].Item1 * 100;
+	}
+
+	public void WalkSpeed()
+	{
+		SetText("You can now walk faster!");
+		FindObjectOfType<PlayerController>().speed += 0.5f;
+	}
+
+	public void SprintSpeed()
+	{
+		SetText("You can now sprint faster!");
+		FindObjectOfType<PlayerController>().sprintSpeed += 0.5f;
+	}
+
+	public void InteractDistance()
+	{
+		SetText("You can now reach further!");
+		FindObjectOfType<PlayerController>().interactRange += 0.5f;
+	}
+
+	private void SetText(string msg)
+	{
+		rewardText.gameObject.SetActive(true);
+		rewardText.text = msg;
+		StartCoroutine(rewardText.GetComponentInParent<DisableAfter>().Activate());
+		
+	}
 }

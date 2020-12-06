@@ -2,10 +2,10 @@
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float sprintSpeed;
-    [SerializeField] private float sensitivity;
-    [SerializeField] private float interactRange;
+    public float speed;
+    public float sprintSpeed;
+    public float sensitivity;
+    public float interactRange;
 
     private Generator hoverObject;
     private RewardSled rewardObject;

@@ -692,10 +692,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6ca7fabb845724eb7a13244e1e4fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyCost: 60
+  buyCost: 50
   initialEfficiency: 3
   upgradeCostMultiplier: 1.2
-  upgradeEfficiencyIncrease: 1
+  upgradeEfficiencyIncrease: 2
   tableName: Elf Worker
   description: A not so hard working elf; punch to wake
   upgradeInfo: Make the elf work faster and sleep less

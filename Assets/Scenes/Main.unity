@@ -13729,7 +13729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toDisable: {fileID: 1878533134}
-  waitTime: 1
+  waitTime: 2.5
 --- !u!222 &551710386
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32071,7 +32071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsText: {fileID: 2122503804}
-  happinessModifier: 0.1
+  happinessModifier: 10
 --- !u!4 &1808327406 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4301529661490574610, guid: 0d21da08a8a251e4ebf004c79d0d2859,
@@ -42481,12 +42481,85 @@ MonoBehaviour:
   pingSound: {fileID: 8300000, guid: c587cdfce04fa3a4daf613461c514de8, type: 3}
   rewardParticles: {fileID: 422691439}
   rewardText: {fileID: 1878533136}
-  rewardStrings:
-  - Elves will sleep less for 5 minutes!
-  - Factories will break down less for 5 minutes!
-  - Elves are slightly more efficient for 5 minutes!
-  - Factories are slightly more efficient for 5 minutes!
-  - The portal is slightly more efficient for 5 minutes!
+  rewards:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052816676945259579}
+        m_MethodName: ElfEfficiencyBonus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052816676945259579}
+        m_MethodName: FactoryEfficiencyBonus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052816676945259579}
+        m_MethodName: PortalEfficiencyBonus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052816676945259579}
+        m_MethodName: WalkSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052816676945259579}
+        m_MethodName: SprintSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052816676945259579}
+        m_MethodName: InteractDistance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &1052816676945259580
 BoxCollider:
   m_ObjectHideFlags: 0

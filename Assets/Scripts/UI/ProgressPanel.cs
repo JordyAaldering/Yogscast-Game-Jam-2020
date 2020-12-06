@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ public class ProgressPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI progressText;
 
-	private Dictionary<string, Tuple<int, int>> progress;
+	public Dictionary<string, Tuple<int, int>> progress { get; private set; }
 
 	private void Start()
 	{

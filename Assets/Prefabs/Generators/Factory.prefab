@@ -4843,15 +4843,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buyCost: 7500
-  initialEfficiency: 10
-  upgradeCostMultiplier: 1.5
-  upgradeEfficiencyIncrease: 10
+  initialEfficiency: 50
+  upgradeCostMultiplier: 1.35
+  upgradeEfficiencyIncrease: 75
   tableName: Factory
   description: Doesn't require sleep
   upgradeInfo: Why even hire elves?
   enabledOnBreak: {fileID: 3117998000618833676}
   enabledOnBuy: {fileID: 5873759464528577305}
-  audioChance: 0.1
+  audioChance: 0.01
   punchSound: {fileID: 8300000, guid: eff37e4a4fae358479506d3396c1741b, type: 3}
   machineSound: {fileID: 8300000, guid: a37095224747b19418e8f313106b5994, type: 3}
   minBreakWait: 150
