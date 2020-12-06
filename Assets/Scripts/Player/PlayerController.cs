@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float interactRange;
 
     private Generator hoverObject;
-    private bool hasHover;
+    private RewardSled rewardObject;
+    private bool hasHover, hasReward;
 
     private CharacterController characterController;
     private UpgradePanel upgradePanel;
@@ -43,13 +44,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) {
             if (hasHover) {
                 hoverObject.HandleInteract();
-            } else {
-                Transform cam = Camera.main.transform;
-                if (Physics.Raycast(cam.position, cam.forward, out var hit, interactRange)) {
-                    if (hit.collider.TryGetComponent<RewardSled>(out var sled)) {
-                        sled.ClaimReward();
-                    }
-                }
+            } else if (hasReward) {
+                rewardObject.ClaimReward();
             }
         }
     }
@@ -85,14 +81,20 @@ public class PlayerController : MonoBehaviour
     private void GetHoverObject()
 	{
         hasHover = false;
+        hasReward = false;
+
         Transform cam = Camera.main.transform;
         if (Physics.Raycast(cam.position, cam.forward, out var hit, interactRange)) {
-            hasHover = hit.collider.TryGetComponent(out hoverObject);
+            if (!(hasHover = hit.collider.TryGetComponent(out hoverObject))) {
+                hasReward = hit.collider.TryGetComponent(out rewardObject);
+            }
         }
 
-        upgradePanel.gameObject.SetActive(hasHover);
+        upgradePanel.gameObject.SetActive(hasHover || hasReward);
         if (hasHover) {
             upgradePanel.SetInfo(hoverObject);
-        }
+        } else if (hasReward) {
+            upgradePanel.SetReward(rewardObject);
+		}
     }
 }

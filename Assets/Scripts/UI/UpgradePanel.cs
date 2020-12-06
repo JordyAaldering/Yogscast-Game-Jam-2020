@@ -9,15 +9,26 @@ public class UpgradePanel : MonoBehaviour
     public void SetInfo(Generator table)
 	{
         if (!table.IsBought) {
-            titleText.text = $"Buy {table.tableName}\n";
+            titleText.text = $"[E] Buy {table.tableName}";
             upgradeText.text = $"Cost: {table.Cost} Presents\n";
             upgradeText.text += table.Efficiency > 0 ? $"Efficiency: {table.Efficiency}\n" : "";
             upgradeText.text += table.description;
         } else {
-            titleText.text = $"Upgrade {table.tableName}\n";
+            titleText.text = $"[E] Upgrade {table.tableName}";
             upgradeText.text = $"Cost: {table.Cost} Presents\n";
             upgradeText.text += $"New Efficiency: {table.Efficiency + table.upgradeEfficiencyIncrease}\n";
             upgradeText.text += table.upgradeInfo;
         }
+    }
+
+    public void SetReward(RewardSled sled)
+	{
+        titleText.text = "[E] Get a reward";
+        if (sled.RewardReady)
+            upgradeText.text = "A new reward is ready for you";
+		else {
+            upgradeText.text = "Your reward is not ready yet\n";
+            upgradeText.text += $"You need {sled.HappinessRequired} happiness";
+		}
     }
 }

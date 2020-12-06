@@ -7,12 +7,13 @@ public class RewardSled : MonoBehaviour
     [SerializeField] private GameObject enabledOnReady;
     [SerializeField] private int happinessRequired;
     [SerializeField] private float happinessMultiplier;
+    public int HappinessRequired => happinessRequired;
 
     [SerializeField] private GameObject rewardParticles;
     [SerializeField] private TextMeshProUGUI rewardText;
     [SerializeField] private List<string> rewardStrings;
 
-    private bool rewardReady = false;
+    public bool RewardReady { get; private set; }
 
 	private void Awake()
 	{
@@ -21,19 +22,19 @@ public class RewardSled : MonoBehaviour
 
 	public void CheckRewardReady()
 	{
-        if (!rewardReady && PlayerStatsManager.Instance.Happiness > happinessRequired) {
+        if (!RewardReady && PlayerStatsManager.Instance.Happiness > happinessRequired) {
             enabledOnReady.SetActive(true);
-            rewardReady = true;
+            RewardReady = true;
 		}
 	}
 
     public void ClaimReward()
 	{
-        if (rewardReady) {
+        if (RewardReady) {
             happinessRequired = (int)(happinessMultiplier *
                 Mathf.Max(PlayerStatsManager.Instance.Happiness, happinessRequired));
             enabledOnReady.SetActive(false);
-            rewardReady = false;
+            RewardReady = false;
 
             rewardParticles.SetActive(true);
             rewardText.gameObject.SetActive(true);
