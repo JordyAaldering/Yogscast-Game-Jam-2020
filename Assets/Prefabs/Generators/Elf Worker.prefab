@@ -5458,7 +5458,8 @@ MonoBehaviour:
   workerAnimator: {fileID: 7595287267683874122}
   wakeEffect: {fileID: 6151206708937570426}
   sleepIcon: {fileID: 8631298904798450500}
-  audioChance: 0.3
+  audioWaitMin: 20
+  audioWaitMax: 25
   punchSound: {fileID: 8300000, guid: eff37e4a4fae358479506d3396c1741b, type: 3}
   hammerSound: {fileID: 8300000, guid: 6c9c8821b26556141bd3af357c76f44d, type: 3}
   minSleepWait: 75
@@ -5475,7 +5476,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.68
   m_Pitch: 1
   Loop: 0
   Mute: 0

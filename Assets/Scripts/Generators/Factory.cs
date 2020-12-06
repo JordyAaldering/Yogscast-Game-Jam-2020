@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Factory : Generator
 {
 	[SerializeField] private GameObject enabledOnBreak;
 	[SerializeField] private GameObject enabledOnBuy;
 
-	[SerializeField] private float audioChance;
+	[SerializeField] private float audioWaitMin;
+	[SerializeField] private float audioWaitMax;
 	[SerializeField] private AudioClip punchSound;
 	[SerializeField] private AudioClip machineSound;
 
@@ -41,12 +43,18 @@ public class Factory : Generator
 		} else if (!isBroken) {
 			PlayerStatsManager.Instance.Efficiency -= Efficiency;
 
-			if (!audioSource.isPlaying && Random.Range(0f, 1f) < audioChance) {
-				audioSource.PlayOneShot(machineSound);
-			}
-
 			enabledOnBreak.SetActive(true);
 			isBroken = true;
+		}
+	}
+
+	private IEnumerator AudioLoop()
+	{
+		while (true) {
+			if (!isBroken && !audioSource.isPlaying) {
+				audioSource.PlayOneShot(machineSound);
+			}
+			yield return new WaitForSeconds(Random.Range(audioWaitMin, audioWaitMax));
 		}
 	}
 
@@ -89,6 +97,8 @@ public class Factory : Generator
 			PlayerStatsManager.Instance.Efficiency += initialEfficiency;
 			FindObjectOfType<ProgressPanel>().IncreaseCounter(tableName);
 			Efficiency = initialEfficiency;
+
+			StartCoroutine(AudioLoop());
 
 			enabledOnBuy.SetActive(true);
 			IsBought = true;

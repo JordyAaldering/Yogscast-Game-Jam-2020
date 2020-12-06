@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class ElfWorker : Generator
 {
@@ -7,7 +8,8 @@ public class ElfWorker : Generator
 	[SerializeField] private GameObject wakeEffect;
 	[SerializeField] private GameObject sleepIcon;
 
-	[SerializeField] private float audioChance;
+	[SerializeField] private float audioWaitMin;
+	[SerializeField] private float audioWaitMax;
 	[SerializeField] private AudioClip punchSound;
 	[SerializeField] private AudioClip hammerSound;
 
@@ -42,14 +44,20 @@ public class ElfWorker : Generator
 			timeUntilSleep -= Time.deltaTime;
 		} else if (!isSleeping) {
 			PlayerStatsManager.Instance.Efficiency -= Efficiency;
-
-			if (!audioSource.isPlaying && Random.Range(0f, 1f) < audioChance) {
-				audioSource.PlayOneShot(hammerSound);
-			}
-
+			
 			workerAnimator.SetBool("isSleeping", true);
 			sleepIcon.SetActive(true);
 			isSleeping = true;
+		}
+	}
+
+	private IEnumerator AudioLoop()
+	{
+		while (true) {
+			if (!isSleeping && !audioSource.isPlaying) {
+				audioSource.PlayOneShot(hammerSound);
+			}
+			yield return new WaitForSeconds(Random.Range(audioWaitMin, audioWaitMax));
 		}
 	}
 
@@ -94,6 +102,8 @@ public class ElfWorker : Generator
 			PlayerStatsManager.Instance.Efficiency += initialEfficiency;
 			FindObjectOfType<ProgressPanel>().IncreaseCounter(tableName);
 			Efficiency = initialEfficiency;
+
+			StartCoroutine(AudioLoop());
 
 			enabledOnBuy.SetActive(true);
 			IsBought = true;
